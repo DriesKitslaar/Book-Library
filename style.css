@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root{
+    --primary-bg: #1A1A40;
+    --secondary-bg: #3D5A80;
+    --accent-1: #E63946;
+    --accent-2: #F1FAEE;
+    --text-color: #F1FAEE;
+    --input-bg: #F1FAEE;
+    --input-text: #1A1A40;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--primary-bg);
+    color:var(--text-color);
+    font-family: "Bebas Neue";
+   
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  .container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 100vh;
+  }
+
+  /* Sidebar Styling*/
+  .sidebar{
+    grid-column: 1 / span 1;
+    display: grid;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+  }
+
+  #new-book-form{
+    background-color: var(--accent-1);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    justify-self: center;
+    gap: 8px;
+    font-size: clamp(1.2em, 4vw, 1.6em);
+
+    label{
+        text-align: center;
+    }
+
+
+    input{
+        border-radius: 10px;
+        
+    }
+
+    input:last-child{
+        margin-top: 10px;
+    }
+  }
+
+  
+  /* Main Content Styling*/
+  .main-content{
+    grid-column: 2 / span 1;
+  }
+
+  .header{
+    background-color: var(--accent-2);
+    border-radius: 0 0 8px 8px;
+    display: grid;
+    justify-content: center;
+    font-size: clamp(1.2em, 4vw, 1.6em);
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+    color: var(--accent-1);
+    
+  }
+
+  .card-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 50px;
+  }
+
+  .card{
+    background-color: white;
+    color:black;
+    border-radius: 20px;
+    display: grid;
+    padding: 20px;
+    font-size: clamp(1.6em, 4vw, 2em);
+    animation: fadeIn 0.5s ease-in-out;
+    box-shadow: 10px 5px 5px black;
+  }
+
+  .card:nth-child(even){
+    background-color: var(--accent-1);
+    color:white;
+    border-radius: 20px;
+    display: grid;
+    padding: 20px;
+    font-size: clamp(1.6em, 4vw, 2em);
+    
+  }
+  
+  button{
+    border-radius: 20px;
+    background-color: var(--input-bg);
+    font-size: smaller;
+    margin: 5px 0 5px 0;
+    box-shadow: 5px 5px 5px black;
+  }
+
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
