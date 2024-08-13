@@ -1,4 +1,8 @@
 const newBookBtn = document.querySelector("#new-book-btn")
+const showOverlayBtn = document.querySelector('#add-button')
+const closeFormBtn = document.querySelector('.close-btn')
+const bookReadCounter = document.querySelector('#books-read')
+const pagesReadCounter = document.querySelector('#pages-read')
 
 const myLibrary = []
 
@@ -31,8 +35,17 @@ function addBookToLibrary(){
 document.querySelector('#new-book-form').addEventListener('submit', function(event) {
     event.preventDefault()
     addBookToLibrary()
+    off()
 })
 
+showOverlayBtn.addEventListener('click', function() {
+    on()
+})
+
+closeFormBtn.addEventListener('click', function(event){
+    event.preventDefault()
+    off()
+})
 function render() {
     let libraryBook = document.querySelector('.card-container')
     libraryBook.innerHTML = ''
@@ -47,12 +60,15 @@ function render() {
                             <button class='remove-btn' onclick='removeBook(${i})'>Remove</button>
                             <button class='toggle-btn' onclick='toggle(${i})'>Toggle Read</button>`
                             
+                            
         libraryBook.appendChild(bookEl)
     }
     document.querySelector('#title').value = ""
     document.querySelector('#author').value = ""
     document.querySelector('#pages').value =  ""
     document.querySelector('#read').value = ""
+
+    updateCounter()
     
 }
 
@@ -60,3 +76,28 @@ function removeBook(index) {
     myLibrary.splice(index, 1)
     render();
 }
+
+function on() {
+    document.getElementById("overlay").style.display = "block";
+  }
+  
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+
+  function updateCounter() {
+    let booksRead = 0;
+    let pagesRead = 0;
+
+    myLibrary.forEach(book => {
+        if (book.read) {
+            booksRead++;
+            pagesRead += parseInt(book.pages);
+        }
+    });
+
+    bookReadCounter.textContent = ` ${booksRead}`;
+    pagesReadCounter.textContent = ` ${pagesRead}`;
+  }
+
+  

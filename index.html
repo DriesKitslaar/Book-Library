@@ -4,30 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Library</title>
+    <script src="https://kit.fontawesome.com/699c88fb55.js" crossorigin="anonymous"></script>    <title>Library</title>
    
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <form id="new-book-form">
-                <label for="title">Title:</label>
-                <input type="text" id="title">
-                <label for="author">Author:</label>
-                <input type="text" id="author">
-                <label for="pages">Pages:</label>
-                <input type="Text" id="pages">
-                <label for="read">Read:</label>
-                <input type="checkbox" id="read" style="transform:scale(2)">
-                <input type="submit" id='new-book-btn' value="new book">
-            </form>
-        </div>
+      <!--
+         <div class="sidebar">
+            <div class="add-button">
+                <button id="add-button"><i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>--> 
         <div class="main-content">
             <div class="header">
                 <h1>The Big Book Collection</h1>
             </div>
             <div class="card-container">
             </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="books-read">
+            <p>Books read:</p>
+            <p id="books-read">0</p>
+        </div>
+        <div class="add-button">
+            <button id="add-button"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <div class="pages-read">
+            <p>Pages read:</p>
+            <p id="pages-read">0</p>
+        </div>
+
+    </div>
+
+    <div id="overlay">
+        <div class="form">
+            <form id="new-book-form">
+                <label for="title">Title:</label>
+                <input type="text" id="title">
+                <label for="author">Author:</label>
+                <input type="text" id="author">
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages">
+                <label for="read">Read:</label>
+                <input type="checkbox" id="read" style="transform:scale(2)">
+                <input type="submit" id='new-book-btn' value="add book">
+                <button class='close-btn' ><i class="fa-solid fa-x"></i> </button>
+            </form>
         </div>
     </div>
 <script src="script.js"></script>
